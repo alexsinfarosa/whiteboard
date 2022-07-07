@@ -4,25 +4,24 @@
  * @return {number[]}
  */
 
+// array of integers
+const nums = [0, 4, 3, 0]
+const target = 0
 function twoSum(nums, target) {
-  let map = {}
-
+  let results = []
   for (let i = 0; i < nums.length; i++) {
-    const n = target - nums[i]
+    const firstIdx = nums[i]
 
-    if (n in map) {
-      return [map[n], i]
+    for (let j = i + 1; j < nums.length; j++) {
+      const secondIdx = nums[j]
+
+      if (firstIdx + secondIdx === target) {
+        results.push(i, j)
+      }
     }
 
-    map[nums[i]] = i
+    return results
   }
-
-  return null
 }
 
-console.time('twoSum')
-twoSum([2, 7, 11, 15], 9)
-console.timeEnd('twoSum')
-
-// twoSum([3, 2, 4], 6)
-// twoSum([3, 3], 6)
+console.log(twoSum(nums, target))

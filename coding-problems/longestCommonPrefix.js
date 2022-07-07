@@ -1,33 +1,14 @@
 /**
- * Write a function to find the longest common prefix string amongst an array of strings.
- * If there is no common prefix, return an empty string "".
- * Input: strs = ["flower","flow","flight"]
- * Output: "fl"
- *
- * Input: strs = ["dog","racecar","car"]
- * Output: ""
- * Explanation: There is no common prefix among the input strings.
- */
-
-/**
  * @param {string[]} strs
  * @return {string}
  */
+const strs = ['flower', 'flow', 'flight']
 function longestCommonPrefix(strs) {
-  if (strs.length === 1) return strs[0]
-  const firstWord = strs[0]
-
-  let common = ''
-  for (let i = 0; i < firstWord.length; i++) {
-    const l = firstWord[i]
-    if (strs[i + 1] && strs[i + 1].includes(l)) {
-      common += l
-    }
-  }
-
-  return common
+  return strs.reduce((prev, next) => {
+    let i = 0
+    while (prev[i] && next[i] && prev[i] === next[i]) i++
+    return prev.slice(0, i)
+  })
 }
 
-console.log(longestCommonPrefix(['flower', 'flow', 'flight']))
-console.log(longestCommonPrefix(['dog', 'racecar', 'car']))
-console.log(longestCommonPrefix(['racecar']))
+console.log(longestCommonPrefix(strs))
