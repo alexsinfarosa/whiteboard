@@ -1,18 +1,13 @@
 /**
- * @param {string} s
+ * @param {number} x
  * @return {boolean}
  */
-const s = '()[]{}'
-function validParentheses(s) {
-  const matches = ['()', '[]', '{}']
-  console.log([...s])
-  return [...s].reduce((prev, next) => {
-    let i = 0
-    console.log({p: prev[i], n: next[i], c: `${prev[i]}${next[i]}`})
-    while (prev[i] && next[i] && matches.includes(`${prev[i]}${next[i]}`))
-      i = i + 2
-    return i === s.length - 1 ? true : false
-  })
+const x = 31213
+function isPalindrome(x) {
+  if (x < 0) return false
+  const str = String(x)
+  const strReversed = str.split('').reverse().join('')
+  return strReversed === str
 }
 
-console.log(validParentheses(s))
+console.log(isPalindrome(x))
