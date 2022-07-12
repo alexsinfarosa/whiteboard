@@ -2,25 +2,12 @@
  * @param {number} x
  * @return {boolean}
  */
+const x = 31213
 function isPalindrome(x) {
-  const s = x.toString()
-  if (s.length === 1) return true
-
-  const first = s[0]
-  const last = s[s.length - 1]
-  if (first !== last) return false
-
-  if (s.length === 2) return true
-
-  const subString = s.substring(1, s.length - 1)
-  return isPalindrome(subString)
+  if (x < 0) return false
+  const str = String(x)
+  const strReversed = str.split('').reverse().join('')
+  return strReversed === str
 }
 
-console.log(isPalindrome(12321))
-console.log(isPalindrome(-121))
-console.log(isPalindrome(10))
-console.log(isPalindrome(11))
-
-console.time('isPalindrome')
-isPalindrome(1234567654321)
-console.timeEnd('isPalindrome')
+console.log(isPalindrome(x))
