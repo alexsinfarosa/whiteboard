@@ -39,46 +39,43 @@
       <h2>Random Form</h2>
       <form method="post" id="myForm">
         <label for="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value="Alex"
-          minlength="3"
-        />
+        <input type="text" id="firstName" name="firstName" minlength="3" />
 
         <label for="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value="Sinfarosa"
-          minlength="3"
-        />
+        <input type="text" id="lastName" name="lastName" minlength="3" />
 
         <button type="submit">Submit</button>
       </form>
     </section>
 
     <script>
-      const myForm = document.getElementById('myForm')
+      const form = document.getElementById('bestForm')
 
-      myForm.addEventListener('submit', e => {
+      form.addEventListener('submit', async e => {
         e.preventDefault()
 
-        const formData = new FormData(e.target)
-        const data = Object.fromEntries(formData)
+        const formData = new FormData(form)
+        const body = Object.fromEntries(formData)
 
-        const url = 'localhost:3000/users'
-        const request = new Request(url, {
-          method: 'post',
-          body: JSON.stringify(data),
+        const {first, last} = body
+
+        // validation
+
+        // check for errors
+
+        const res = await fetch('url', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'multipart/form-data',
+          },
+          body,
         })
-        console.log(request)
-        // fetch(request)
-        //   .then(res => res.json())
-        //   .then(data => console.log(data))
-        //   .catch(error => console.error(error))
+
+        if (res.ok) {
+          return await res.json()
+        }
+
+        return new Error(`HTTP error: ${res.status}`)
       })
     </script>
   </body>

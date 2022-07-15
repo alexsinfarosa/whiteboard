@@ -10,53 +10,7 @@
 
   <style></style>
 
-  <body>
-    <form method="post" id="bestForm">
-      <label htmlFor="first">First:</label>
-      <input type="text" id="first" name="first" placeholder="firstname" />
+  <body></body>
 
-      <label htmlFor="last">Last:</label>
-      <input type="text" id="last" name="last" placeholder="lastname" />
-
-      <button type="submit">Submit</button>
-      <button type="reset">Reset</button>
-    </form>
-
-    <script>
-      const form = document.getElementById('bestForm')
-
-      form.addEventListener('submit', async e => {
-        e.preventDefault()
-
-        const formData = new FormData(form)
-        const body = Object.fromEntries(formData)
-
-        const {first, last} = body
-
-        // validation
-
-        // check for errors
-
-        const res = await fetch('url', {
-          method: 'POST',
-          headers: {
-            'Content-type': 'multipart/form-data',
-          },
-          body,
-        })
-
-        if (res.ok) {
-          return await res.json()
-        }
-
-        return new Error(`HTTP error: ${res.status}`)
-      })
-
-      const div = document.createElement('div')
-      div.innerText = 'ciccio bello'
-      div.style.color = 'red'
-      document.body.append(div)
-    </script>
-    <script src="./coding-problems/testing.js"></script>
-  </body>
+  <script src="./design-patterns/blank.js"></script>
 </html>
