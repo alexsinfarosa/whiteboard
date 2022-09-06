@@ -1,68 +1,5 @@
-// class Animal {
-//   constructor(name, energy) {
-//     this.name = name
-//     this.energy = energy
-//   }
+// The function is a verb, an ability, it explains what it does...
 
-//   eat(amount) {
-//     this.energy += amount
-//   }
-
-//   play(length) {
-//     this.energy -= length
-//   }
-// }
-
-// class Dog extends Animal {
-//   constructor(name, energy, breed) {
-//     super(name, energy)
-//     this.breed = breed
-//   }
-//   bark() {
-//     console.log(`${this.name} barks`)
-//     this.energy -= 1
-//   }
-// }
-// const chiapparo = new Dog('Tobia', 5, 'unkown')
-// console.log(chiapparo)
-// chiapparo.play(7)
-// console.log(chiapparo)
-// chiapparo.bark()
-
-// class Cat extends Animal {
-//   constructor(name, energy, declawed) {
-//     super(name, energy)
-//     this.declawed = declawed
-//   }
-//   meow() {
-//     console.log(`${this.name} meows`)
-//   }
-// }
-// const milo = new Cat('Milo', 8, true)
-// console.log(milo)
-// milo.eat(3)
-// console.log(milo)
-// milo.meow()
-
-// later on...
-
-// class User {
-//   constructor(name, email) {
-//     this.name = name
-//     this.email = email
-//     this.pets = []
-//   }
-//   adopt(animal) {
-//     this.pets.push(animal)
-//   }
-
-//   // eat()??
-// }
-// const alex = new User('Alex', 'xscanna@gmail.com')
-// alex.adopt(milo)
-// console.log(alex)
-
-// Composition -----------------------------------------------------------------
 function eater(state) {
   return {
     eat: amount => {
@@ -116,7 +53,21 @@ function Dog(name, energy, breed) {
 }
 
 const chiapparo = new Dog('Tobia', 7, 'Unknow...')
-console.log(chiapparo)
+console.log({chiapparo})
+
+function Cat(name, energy, breed) {
+  let cat = {
+    name,
+    energy,
+    breed,
+  }
+
+  return {...cat, ...meower(cat), ...eater(cat)}
+}
+
+const milo = new Cat('milo', 8, 'Siamese')
+milo.meow()
+console.log({milo})
 
 function User(name, email) {
   let user = {
@@ -132,4 +83,6 @@ console.log(alex)
 alex.adopt(chiapparo)
 console.log(alex)
 chiapparo.play(5)
+console.log(alex)
+alex.adopt(milo)
 console.log(alex)

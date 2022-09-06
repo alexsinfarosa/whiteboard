@@ -1,18 +1,19 @@
+// A construction funciton that create an object with properties and methods. Then it returns the object.
 function Animal(name, energy) {
-  let res = {}
-  res.name = name
-  res.energy = energy
+  let animal = {}
+  animal.name = name
+  animal.energy = energy
 
-  res.eat = function (amount) {
-    console.log(`${res.name} eats`)
-    res.energy += amount
+  animal.eat = function (amount) {
+    console.log(`${animal.name} eats`)
+    animal.energy += amount
   }
 
-  res.play = function (length) {
-    console.log(`${res.name} plays`)
-    res.energy -= length
+  animal.play = function (length) {
+    console.log(`${animal.name} plays`)
+    animal.energy -= length
   }
-  return res
+  return animal
 }
 
 const milo = Animal('Milo', 11)
