@@ -1,22 +1,54 @@
 const dateTimeOptions = {
   hour: 'numeric',
   minute: 'numeric',
+  second: 'numeric',
 }
 
-function Order(type) {
+function TableOrder() {
+  return {
+    table: null,
+    setTable(d) {
+      this.table = d
+    },
+    people: null,
+    setPeople(d) {
+      this.people = d
+    },
+    worker: null,
+    setWorker(d) {
+      this.worker = d
+    },
+    note: '',
+    setNote(d) {
+      this.note = d
+    },
+  }
+}
+
+function Order() {
   const order = {
     timestamp: new Intl.DateTimeFormat('en-US', dateTimeOptions).format(
       new Date(),
     ),
-    type,
     items: [],
   }
 
-  return {...order, ...destination}
+  return {...order, ...TableOrder()}
 }
 
-const tavolo56 = new Order('inhouse')
-console.log(tavolo56)
+const order = new Order()
+order.setWorker('Patrizio')
+order.setTable(56)
+order.setPeople(4)
+order.setNote("It's a birthday")
+console.log(order)
+
+const order2 = new Order()
+order2.setWorker('Vito')
+order2.setTable(99)
+order2.setPeople(8)
+order2.setNote('Corporate dinner')
+console.log(order2)
 
 function pizzaSizes(pizza) {
   return {
