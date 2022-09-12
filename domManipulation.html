@@ -30,10 +30,13 @@
     document.body.append(ul)
   </script>
 
-  <!-- <script>
+  <script>
     // REVIEW...
     const body = document.body
     body.append('Ciccio', 'Bello') // it accepts strings or html elems; it can have multiple string params
+    const h1 = document.createElement('h1')
+    h1.innerText = 'H1 is here'
+    body.append(h1)
 
     const div = document.createElement('div') // it accepts only one html element
     div.innerText = 'div.innerText' // looks at the css to see if visible. It removes all spaces
@@ -69,24 +72,22 @@
     p2.removeAttribute('id')
 
     // data attributes
-    // get
-    const tinoDiv = document.getElementById('tino')
-    console.log(tinoDiv.dataset)
-    // set
-    tinoDiv.dataset.three = 'three'
-    console.log(tinoDiv.dataset)
+    const tinoDiv = document.createElement('div')
+    tinoDiv.dataset.ciccio = 'nello' // set
+    console.log(tinoDiv)
+    console.log(tinoDiv.dataset.ciccio) // get
 
     // classList
     console.log(tinoDiv.classList.contains('mx-4'))
-    console.log(tinoDiv.classList.length)
     tinoDiv.classList.add('bg-red-500', 'flex')
+    console.log(tinoDiv.classList.length)
     tinoDiv.classList.toggle('visible')
-    console.log(tinoDiv)
+    // console.log(tinoDiv)
 
     // style
     tinoDiv.style.fontWeight = 800
     tinoDiv.style.color = 'red'
-  </script> -->
+  </script>
 
   <!-- <script src="./js/async.js"></script> -->
 </html>

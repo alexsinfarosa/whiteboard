@@ -1,5 +1,4 @@
 // The function is a verb, an ability, it explains what it does...
-
 function eater(state) {
   return {
     eat: amount => {
