@@ -1,5 +1,3 @@
-'use strict'
-
 const counts = [
   ['900, google.com'],
   ['60, yayoo.com'],
