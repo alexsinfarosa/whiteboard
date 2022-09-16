@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
@@ -24,21 +25,33 @@ async function seed() {
     },
   });
 
-  await prisma.note.create({
-    data: {
-      title: "My first note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
+  // await prisma.note.create({
+  //   data: {
+  //     title: "My first note",
+  //     body: "Hello, world!",
+  //     userId: user.id,
+  //   },
+  // });
 
-  await prisma.note.create({
-    data: {
-      title: "My second note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
+  // await prisma.note.create({
+  //   data: {
+  //     title: "My second note",
+  //     body: "Hello, world!",
+  //     userId: user.id,
+  //   },
+  // });
+
+  const data = Array.from({ length: 10 }).map(() => ({
+    title: faker.lorem.words(3),
+    body: faker.lorem.paragraphs(3),
+    userId: user.id,
+  }));
+
+  let inserts = [];
+  for (const d of data) {
+    inserts.push(prisma.note.create({ data: d }));
+  }
+  await prisma.$transaction(inserts);
 
   console.log(`Database has been seeded. 🌱`);
 }
