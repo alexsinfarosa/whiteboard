@@ -35,15 +35,18 @@
     "@remix-run/serve": "*",
     "@remix-run/server-runtime": "*",
     "bcryptjs": "^2.4.3",
+    "highlight.js": "^11.6.0",
     "isbot": "^3.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rehype-highlight": "^5.0.2",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
     "@remix-run/dev": "*",
     "@remix-run/eslint-config": "*",
+    "@tailwindcss/typography": "^0.5.7",
     "@testing-library/cypress": "^8.0.3",
     "@testing-library/dom": "8.18.1",
     "@testing-library/jest-dom": "^5.16.5",

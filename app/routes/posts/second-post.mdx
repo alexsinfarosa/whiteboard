@@ -1,0 +1,31 @@
+---
+title: "How to use the new `with` statement in Python 3.9"
+date: 2020-10-05T12:00:00Z
+tags: ["python", "python3.9", "with"]
+draft: false
+---
+
+Python 3.9 introduced a new `with` statement that allows you to use a context manager as a function. This is a very useful feature that allows you to write more concise code. In this article, we will see how to use it.
+
+## The `with` statement
+
+The `with` statement is used to execute a block of code with a context manager. A context manager is an object that defines the runtime context to be established when executing a `with` statement. It is a very useful feature that allows you to write more concise code. For example, you can use it to open a file and close it automatically when you are done with it.
+
+```python
+
+with open("file.txt") as f:
+    print(f.read())
+
+```
+
+The `with` statement is very useful when you need to open a file, read it, and close it. However, it is not very useful when you need to open a file, read it, and return the content of the file. In this case, you need to use a `try`/`finally` block.
+
+```python
+
+try:
+    f = open("file.txt")
+    print(f.read())
+finally:
+    f.close()
+
+```
