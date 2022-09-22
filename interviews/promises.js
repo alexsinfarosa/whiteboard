@@ -64,6 +64,7 @@ const promise = new Promise((resolve, reject) => {
     reject(new Error('Rejected'))
   }
 })
+
 promise
   .then(data => console.log(data))
   .catch(err => console.log(err))
