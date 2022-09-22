@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon" />
+    <title>Form</title>
+  </head>
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+  />
+
+  <style>
+    a {
+      text-decoration: none;
+      color: #000;
+      font-size: medium;
+      letter-spacing: 1px;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: red;
+    }
+  </style>
+
+  <body style="padding: 48px">
+    <section>
+      <h2>Random Form</h2>
+      <form method="post" id="myForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" minlength="3" />
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" minlength="3" />
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <script>
+      const form = document.getElementById('bestForm')
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault()
+
+        const formData = new FormData(form)
+        const body = Object.fromEntries(formData)
+
+        const {first, last} = body
+
+        // validation
+
+        // check for errors
+
+        const res = await fetch('url', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'multipart/form-data',
+          },
+          body,
+        })
+
+        if (res.ok) {
+          return await res.json()
+        }
+
+        return new Error(`HTTP error: ${res.status}`)
+      })
+    </script>
+  </body>
+</html>
