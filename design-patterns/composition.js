@@ -1,42 +1,43 @@
 function developer() {
   return {
-    type: 'Developer',
+    type: 'developer',
     code() {
-      console.log(`A ${this.type} and it codes`)
+      console.log(`A front-end ${this.type}`)
       return this
     },
-    tools: ['VScode', 'JS'],
+    tools: ['VScode', 'DevTool'],
   }
 }
 
 function designer() {
   return {
-    type: 'Designer',
+    type: 'designer',
     design() {
-      console.log(`A ${this.type} whom designs things`)
+      console.log(`A digital ${this.type}`)
       return this
     },
-    tools: ['Figma', 'Google Fonts'],
+    tools: ['Figma', 'Adobe'],
   }
 }
 
 function employ(name, type) {
   const employ = {
+    id: Math.random().toString(36).substr(2, 9),
     name,
   }
-  if (type === 'Developer') {
+  if (type === 'developer') {
     return {...employ, ...developer()}
   }
-  if (type === 'Designer') {
+  if (type === 'designer') {
     return {...employ, ...designer()}
   }
-  return {...employ}
+  return employ
 }
 
-const alex = employ('Alex', 'Developer')
+const alex = employ('Alex', 'developer')
 console.log(alex)
 alex.code()
 
-const nash = employ('Nashley', 'Designer')
+const nash = employ('Nashley', 'designer')
 console.log(nash)
 nash.design()

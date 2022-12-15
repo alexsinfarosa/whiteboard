@@ -5,6 +5,7 @@ const promises = [
   Promise.reject('Ciccio'),
 ]
 
+// Implement a function that takes an array of promises and returns a promise
 function promiseAll(promises) {
   let res = []
 
@@ -29,23 +30,6 @@ promiseAll(promises)
   .finally(() => console.log('Maledetta Primavera'))
 
 //------------------------------------------------------------------------------
-function add(x, y) {
-  return x + y
-}
-
-const five = add(2, 3)
-console.log(five)
-
-// function higherOrderFunction(x, callback) {
-//   return callback(5, x)
-// }
-function addSeven(x, add) {
-  return add(7, x)
-}
-
-const x1 = addSeven(10, add)
-console.log(x1)
-
 // promise status => pending, fulfilled, rejected
 
 // create a Promise
@@ -69,9 +53,3 @@ promise
   .then(data => console.log(data))
   .catch(err => console.log(err))
   .finally(() => console.log('The end!!!'))
-
-async function sub(x, y) {
-  return x - y
-}
-
-sub(7, 3).then(result => console.log(result))
