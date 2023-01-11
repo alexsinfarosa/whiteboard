@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <h1>Counter with Vanilla JS</h1>
+
+    <button>Counter: <span id="counter">0</span></button>
+    <script>
+      const button = document.querySelector('button')
+      const span = document.getElementById('counter')
+
+      let counter = 0
+      button.addEventListener('click', () => {
+        counter++
+        span.textContent = counter
+      })
+    </script>
+  </body>
+</html>
